@@ -17,7 +17,7 @@ Data is also stored here:
 
 [05_Using_GenAlEx.txt](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/05_Using_GenAlEx.txt): Instructions on using [GenAlEx](https://biology-assets.anu.edu.au/GenAlEx/Welcome.html). 
 
-[06_GenePop.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/06_GenePop.R): R code to analyse data with `GenePop`: Hardy Weinberg, Linkage Disequilibrium, Fis. 
+[06_GenePop.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/06_GenePop.R): R code for Hardy Weinberg, Linkage Disequilibrium, Fis. 
 
 [07_StructurePrep.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/07_StructurePrep.R): R code to prepare data for use with [STRUCTURE](https://web.stanford.edu/group/pritchardlab/structure.html) 
 
@@ -25,7 +25,7 @@ Data is also stored here:
 
 [08b_Structure_Terminal_2018.txt](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/08b_Structure_Terminal_2018.txt): Same but for 2018 (regional scale) data. 
 
-[09_PopHelper_StructureVisualisation.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/09_PopHelper_StructureVisualisation.R): R code to visualise STRUCTURE outputs using `pophelper` and implement Evanno's method. 
+[09_PopHelper_StructureVisualisation.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/09_PopHelper_StructureVisualisation.R): R code to visualise STRUCTURE outputs and implement Evanno's method. 
 
 [10_GenindObjects.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/10_GenindObjects.R): R code to transform genetic data into genind objects.
 
