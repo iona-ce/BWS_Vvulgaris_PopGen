@@ -1,0 +1,80 @@
+Genepop 4.7.5, Genotypic linkage disequilibrium
+
+File: Data/09a_BWS_Data_50_NoSibs_2017_GenePop.txt (Title line:"")
+
+Number of populations detected : 1
+Number of loci detected        : 12
+
+Markov chain parameters
+	Dememorisation       : 10000
+	Batches              : 100
+	Iterations per batch : 5000
+
+Pop             Locus#1  Locus#2    P-Value      S.E.     Switches
+----------      -------  -------    --------     -------- --------
+Pop1            LIST2007 LIST2003   0.00294      0.001773     7859
+Pop1            LIST2007 LIST2013   0.000012     0.000012    25733
+Pop1            LIST2003 LIST2013   0.568286     0.035027     5930
+Pop1            LIST2007 LIST2018   0.723680     0.025382     8785
+Pop1            LIST2003 LIST2018   0.098494     0.025005     1426
+Pop1            LIST2013 LIST2018   0.153800     0.023639     7420
+Pop1            LIST2007 VMA3       0.017182     0.004670    11719
+Pop1            LIST2003 VMA3       0.001352     0.000795     3478
+Pop1            LIST2013 VMA3       0.015448     0.003485    12695
+Pop1            LIST2018 VMA3       0.040798     0.011674     4122
+Pop1            LIST2007 LIST2004   0.022630     0.006013     9832
+Pop1            LIST2003 LIST2004   0.195976     0.028364     3228
+Pop1            LIST2013 LIST2004   0.327854     0.020503    13471
+Pop1            LIST2018 LIST2004   0.730102     0.031939     3475
+Pop1            VMA3     LIST2004   0.100678     0.014838     7098
+Pop1            LIST2007 LIST2001   0.232002     0.024363     7737
+Pop1            LIST2003 LIST2001   0.314678     0.043014      925
+Pop1            LIST2013 LIST2001   0.177382     0.031603     4353
+Pop1            LIST2018 LIST2001   0.639014     0.045351      876
+Pop1            VMA3     LIST2001   0.747838     0.032999     2948
+Pop1            LIST2004 LIST2001   0.994302     0.003148     2331
+Pop1            LIST2007 LIST2011   0.217220     0.011260    21895
+Pop1            LIST2003 LIST2011   0.905324     0.013540     9111
+Pop1            LIST2013 LIST2011   0.500030     0.016841    17180
+Pop1            LIST2018 LIST2011   0.799322     0.017856    10065
+Pop1            VMA3     LIST2011   0.342682     0.014023    19148
+Pop1            LIST2004 LIST2011   0.686590     0.014121    17168
+Pop1            LIST2001 LIST2011   0.839842     0.014213    11008
+Pop1            LIST2007 VMA6       0.434898     0.031250     8100
+Pop1            LIST2003 VMA6       0.957206     0.017925     1750
+Pop1            LIST2013 VMA6       0.100638     0.016428     7579
+Pop1            LIST2018 VMA6       0.075800     0.022167     1730
+Pop1            VMA3     VMA6       0.040782     0.011645     4066
+Pop1            LIST2004 VMA6       0.905306     0.016725     3715
+Pop1            LIST2001 VMA6       0.457862     0.048312     1069
+Pop1            LIST2011 VMA6       0.176078     0.013658    12982
+Pop1            LIST2007 R1.169     0.269902     0.027524    10528
+Pop1            LIST2003 R1.169     0.223454     0.038867     1355
+Pop1            LIST2013 R1.169     0.042988     0.010431     6508
+Pop1            LIST2018 R1.169     0.423156     0.042421     1602
+Pop1            VMA3     R1.169     0.084708     0.022401     4291
+Pop1            LIST2004 R1.169     0.100612     0.023135     4210
+Pop1            LIST2001 R1.169     0.555310     0.045124      949
+Pop1            LIST2011 R1.169     0.783432     0.019180    10084
+Pop1            VMA6     R1.169     0.701972     0.038635     1844
+Pop1            LIST2007 LIST2017   0.060526     0.010058    12404
+Pop1            LIST2003 LIST2017   0.427820     0.039711     2826
+Pop1            LIST2013 LIST2017   0.183536     0.017323     9102
+Pop1            LIST2018 LIST2017   0.255026     0.031210     3400
+Pop1            VMA3     LIST2017   0.046778     0.012238     6228
+Pop1            LIST2004 LIST2017   0.113978     0.014201     6500
+Pop1            LIST2001 LIST2017   0.600248     0.038007     2499
+Pop1            LIST2011 LIST2017   0.474982     0.019859    11167
+Pop1            VMA6     LIST2017   0.604478     0.033768     4114
+Pop1            R1.169   LIST2017   0.001338     0.001121     3213
+Pop1            LIST2007 Rufa19     0.065932     0.013621     9646
+Pop1            LIST2003 Rufa19     0.281562     0.039357     2052
+Pop1            LIST2013 Rufa19     0.495924     0.030896     8306
+Pop1            LIST2018 Rufa19     0.654784     0.036879     2637
+Pop1            VMA3     Rufa19     0.034328     0.009632     4900
+Pop1            LIST2004 Rufa19     0.541050     0.033534     5773
+Pop1            LIST2001 Rufa19     0.540120     0.042616     1549
+Pop1            LIST2011 Rufa19     0.744680     0.016524    13723
+Pop1            VMA6     Rufa19     0.636044     0.038700     2666
+Pop1            R1.169   Rufa19     0.008016     0.006159     2603
+Pop1            LIST2017 Rufa19     0.038854     0.011663     5658                 

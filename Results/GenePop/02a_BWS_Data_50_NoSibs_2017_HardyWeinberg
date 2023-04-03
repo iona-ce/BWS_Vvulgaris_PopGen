@@ -1,0 +1,49 @@
+Genepop 4.7.5: Hardy-Weinberg test
+
+File: Data/09a_BWS_Data_50_NoSibs_2017_GenePop.txt (Title line:"")
+
+Number of populations detected:    1
+Number of loci detected:           12
+
+
+Estimation of exact P-Values by the Markov chain method. 
+---------------------------------------------
+Markov chain parameters for all tests:
+Dememorization:              10000
+Batches:                     20
+Iterations per batch:        5000
+Hardy Weinberg: Probability test
+        ************************
+
+
+
+==========================================
+     Results by population
+==========================================
+
+
+Pop : Pop1
+-----------------------------------------
+                             Fis estimates
+                            ---------------
+locus       P-val   S.E.    W&C     R&H     Steps 
+----------- ------- ------- ------- ------- ------
+LIST2007    0.0000  0.0000   0.3529  0.2228   9082 switches
+LIST2003    0.0000  0.0000   0.0881  0.1535   2839 switches
+LIST2013    0.1044  0.0211   0.0750  0.0891   4800 switches
+LIST2018    0.0329  0.0095   0.1285  0.1137   9197 switches
+VMA3        0.0000  0.0000   0.2353  0.2614   7049 switches
+LIST2004    0.0000  0.0000   0.2603  0.3630   5501 switches
+LIST2001    0.1756  0.0252   0.0866  0.0662   5831 switches
+LIST2011    0.0003  0.0003   0.1237  0.3277   4228 switches
+VMA6        0.0072  0.0058   0.1014  0.0572   7926 switches
+R1.169      0.0021  0.0020   0.1181  0.1157   2478 switches
+LIST2017    0.0000  0.0000   0.3569  0.3105   1263 switches
+Rufa19      0.0450  0.0133  -0.0188  0.0255   7786 switches
+
+All (Fisher's method):
+ Chi2 :     > 174.5551
+ Df   :    24
+ Prob :     < 7.99e-25
+
+Normal ending
