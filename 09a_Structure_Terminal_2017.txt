@@ -1,0 +1,77 @@
+#### Running STRUCTURE for BWS 2017 data on Terminal ####
+
+## 1. Navigate to working directory where 
+cd ~/Documents/DTP/BWS/Datasets/DataForGitHub/20230127_BWS_Scripts/Data/11_Structure
+
+## 2. Edit main paramameters (original file = that provided by Structure)
+
+# Copy mainparams to new file (renamed)
+cp mainparams mainparams_bws17
+
+## 3. Creating mainparams input files 
+#Here:
+# - Copy and rename file
+# - Enter pop size (NUMINDS)
+# - Enter number of loci (NUMLOCI)
+# - Change MARKERNAMES to 0 (indicating that we have not included the marker names here)
+# - Define ONEROWPERIND - meaning that there is genotypic data for one row per individual rather than in two rows.
+# - Define the number of populations; this is what we are truly interested in; change it for each pop size of interest (i.e. K). This is repeated here x3 times for each K
+
+#Structure k=1
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek1_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k1 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k2 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    3/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k3 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek4_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    4/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k4 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek5_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    5/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k5 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek6_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    6/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k6 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek1_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k1_2 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek1_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k1_3 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek2_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k2_2 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek2_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k2_3 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek3_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    3/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k3_2 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek3_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    3/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k3_3 ;
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek4_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    4/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k4_2 ; 
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek4_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    4/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k4_3 ; 
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek5_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    5/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k5_2 ; 
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek5_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    5/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k5_3 ; 
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek6_2_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    6/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k6_2 ; 
+
+sed 's/infile/bws17_structure.txt/g' mainparams | sed 's/outfile/bws17_structurek6_3_results/g' | sed 's/#define NUMINDS    100/#define NUMINDS    97/g' | sed 's/#define NUMLOCI    100/#define NUMLOCI    12/g' | sed 's/#define MARKERNAMES      1/#define MARKERNAMES      0/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g' | sed 's/#define MAXPOPS    2/#define MAXPOPS    6/g' | sed 's/#define ONEROWPERIND 0/#define ONEROWPERIND 1/g'> mainparams_bws17_k6_3
+
+#Run structure in terminal for each K
+
+./structure -m mainparams_bws17_k1 ; 
+./structure -m mainparams_bws17_k1_2 ; 
+./structure -m mainparams_bws17_k1_3 ; 
+./structure -m mainparams_bws17_k2 ; 
+./structure -m mainparams_bws17_k2_2 ; 
+./structure -m mainparams_bws17_k2_3 ; 
+./structure -m mainparams_bws17_k3 ; 
+./structure -m mainparams_bws17_k3_2 ; 
+./structure -m mainparams_bws17_k3_3 ; 
+./structure -m mainparams_bws17_k4 ; 
+./structure -m mainparams_bws17_k4_2 ;
+./structure -m mainparams_bws17_k4_3 ; 
+./structure -m mainparams_bws17_k5 ; 
+./structure -m mainparams_bws17_k5_2 ; 
+./structure -m mainparams_bws17_k5_3 ; 
+./structure -m mainparams_bws17_k6 ; 
+./structure -m mainparams_bws17_k6_2 ;
+./structure -m mainparams_bws17_k6_3
+

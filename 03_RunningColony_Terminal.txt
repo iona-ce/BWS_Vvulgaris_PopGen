@@ -1,0 +1,15 @@
+# Running COLONY via terminal
+# Note that each data file needs to be edited with information necessary for COLONY to run 
+# See COLONY manual for information on this 
+
+#2017 Data
+
+#Navigate to working directory
+
+cd ~/Documents/DTP/BWS/Datasets/DataForGitHub/20230127_BWS_Scripts/Data/Colony
+
+#Run colony
+./x.out IFN:03_COLONY_BWS17.txt && ./x.out IFN:04_COLONY_BWS18.txt
+
+
+

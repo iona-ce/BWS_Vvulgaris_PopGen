@@ -1,0 +1,53 @@
+# ANALYSING BWS DATA IN GENALEX
+
+# 1. Setting up ----
+
+# In Data folder, there are two files: 
+# 08a_BWS_Data_50_NoSibs_2017_GenAlEx.csv and 08b_BWS_Data_50_NoSibs_2018_GenAlEx.csv
+# These have been prepared to match GenAlEx format in R 
+
+# Download GenAlEx plugin for Microsoft Excel and click on the download to open the Plugin in Excel 
+
+# To analyse the data:
+# Open the data file in Excel (right click, open with > Microsoft Excel)
+
+# 2. Preparing data ---- 
+
+# Necessary to add in parameters for GenAlEx to work
+# This must be done manually 
+
+# Parameter values:
+# A1 = Number of loci
+# B1 = Sample size (number of individuals)
+# C1 = Number of populations (n)
+# D1 + [CELL = (n-1)]1 = Number of individuals per population (use as many cells as necessary in that row)
+
+# Parameters > Insert Header Rows and Params 
+# This inserts x2 rows, with for: 
+# 2017: B1 = 97, C1 = 1, D1 = 97. Type "12" to A1 (no loci)
+# 2018: B1 = 184, C1 = 1, D1 = 184. Type "13" to A1.
+
+# 3. Analysing the data ----
+
+# Get allelic frequencies:
+# Frequency based > Frequency > [Check data] > Frequency by Pop + Het && Poly by Pop 
+
+# This creates 2 new sheets 
+
+# AFP = Allelic frequencies by Pop
+# HFP = Heterozygosity, Fstatistics and Polymorphism by Population 
+
+# Note: Because we are only considering these data as one population, we can tick wither Het && Poly by Pop (HFP) or Het && Poly by Locus (HFL)
+# HFP and HFL give the same results.
+
+# To save the results, it is necessary to save this document as an .xls file (Excel 97-2004). 
+
+# Exporting files ----
+
+# These files then need to be exported in two different formats for further analyses 
+# 1. GenPop as a .txt file 
+# 2. Microchecker  
+
+
+
+
