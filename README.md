@@ -5,13 +5,13 @@ Data is also stored here:
 
 # In this GitHub repo:
 
-## [Scripts](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/tree/main/Scripts)
+## [Scripts](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/tree/main/Scripts) 
 
-[01_TidyingData_50Complete.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/01_TidyingData_50Complete.R)
+[01_TidyingData_50Complete.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/01_TidyingData_50Complete.R) : Cleaning raw data for subsequent analyses.
 
-[02_ColonyDataPrep.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/02_ColonyDataPrep.R)
+[02_ColonyDataPrep.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/02_ColonyDataPrep.R): Preparing data for use with [COLONY](https://www.zsl.org/about-zsl/resources/software/colony) (Jones and Wang, 2019)
 
-[03_RunningColony_Terminal.txt](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/03_RunningColony_Terminal.txt)
+[03_RunningColony_Terminal.txt](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/03_RunningColony_Terminal.txt) : Code to run COLONY in 
 
 [04_ColonyOutputs.R](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/blob/main/Scripts/04_ColonyOutputs.R)
 
