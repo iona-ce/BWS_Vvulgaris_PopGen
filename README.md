@@ -3,4 +3,6 @@ Code used for the BWS Population Genetics study (currently under review) and oth
 
 Data is also stored here: 
 
-([yadda yadda](https://twitter.com/home)) 
+# In this GitHub
+
+# (Scripts [https://github.com/iona-ce/BWS_Vvulgaris_PopGen/tree/main/Scripts])
