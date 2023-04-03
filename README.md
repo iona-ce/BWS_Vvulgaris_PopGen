@@ -5,4 +5,4 @@ Data is also stored here:
 
 # In this GitHub
 
-# [Scripts]([url](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/tree/main/Scripts))
+[Scripts]([url](https://github.com/iona-ce/BWS_Vvulgaris_PopGen/tree/main/Scripts))
