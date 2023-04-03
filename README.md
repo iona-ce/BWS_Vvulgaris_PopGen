@@ -3,4 +3,4 @@ Code used for the BWS Population Genetics study (currently under review) and oth
 
 Data is also stored here: 
 
-[yadda yadda]([url](https://twitter.com/home)) 
+([yadda yadda](https://twitter.com/home)) 
