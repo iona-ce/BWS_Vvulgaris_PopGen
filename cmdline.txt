@@ -1,0 +1,10 @@
+Genepop
+GenepopInputFile=Data/09b_BWS_Data_50_NoSibs_2018_GenePop.txt
+MenuOptions=1:3
+Dememorisation=10000
+HWtests=MCMC
+BatchNumber=20
+BatchLength=10000
+RandomSeed=67144630
+Mode=Batch
+

@@ -24,7 +24,7 @@
 
 # Parameters > Insert Header Rows and Params 
 # This inserts x2 rows, with for: 
-# 2017: B1 = 97, C1 = 1, D1 = 97. Type "12" to A1 (no loci)
+# 2017: B1 = 97, C1 = 1, D1 = 97. Type "12" to A1 (number of loci)
 # 2018: B1 = 184, C1 = 1, D1 = 184. Type "13" to A1.
 
 # 3. Analysing the data ----

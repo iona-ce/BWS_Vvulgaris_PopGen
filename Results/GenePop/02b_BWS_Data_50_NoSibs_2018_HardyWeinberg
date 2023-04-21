@@ -11,7 +11,7 @@ Estimation of exact P-Values by the Markov chain method.
 Markov chain parameters for all tests:
 Dememorization:              10000
 Batches:                     20
-Iterations per batch:        5000
+Iterations per batch:        10000
 Hardy Weinberg: Probability test
         ************************
 
@@ -28,23 +28,23 @@ Pop : Pop1
                             ---------------
 locus       P-val   S.E.    W&C     R&H     Steps 
 ----------- ------- ------- ------- ------- ------
-LIST2007    0.0006  0.0006   0.1597  0.2832   3728 switches
-LIST2003    0.3171  0.0511   0.0858  0.0393   5649 switches
-LIST2013    0.0000  0.0000   0.1013  0.5702   6103 switches
-LIST2018    0.0000  0.0000   0.1981  0.1104   8353 switches
-VMA3        0.0000  0.0000   0.2237  0.1980   7721 switches
-LIST2001    0.0115  0.0044   0.1157  0.0979  14321 switches
-LIST2011    0.6633  0.0103  -0.0922 -0.0488  14183 switches
-VMA6        0.0000  0.0000   0.2143  0.2379  17392 switches
-R1.169      0.4955  0.0605   0.0267  0.0613   5503 switches
-LIST2017    0.0000  0.0000   0.2260  0.2596   2559 switches
-Rufa19      0.0000  0.0000   0.1801  0.2060   5552 switches
-D3.15       0.0966  0.0483   0.0931  0.1069   7204 switches
-VMA4        0.0000  0.0000   0.2994  0.3008   6205 switches
+LIST2007    0.0017  0.0011   0.1495  0.2806   8235 switches
+LIST2003    0.3537  0.0604   0.0872  0.0396  11714 switches
+LIST2013    0.0000  0.0000   0.0981  0.5692  12190 switches
+LIST2018    0.0000  0.0000   0.2000  0.1106  16688 switches
+VMA3        0.0000  0.0000   0.2209  0.1947  15656 switches
+LIST2001    0.0178  0.0057   0.1128  0.0967  28906 switches
+LIST2011    0.6588  0.0072  -0.0902 -0.0479  28611 switches
+VMA6        0.0000  0.0000   0.2113  0.2368  35074 switches
+R1.169      0.4695  0.0466   0.0222  0.0607  11280 switches
+LIST2017    0.0000  0.0000   0.2270  0.2597   5196 switches
+Rufa19      0.0000  0.0000   0.1759  0.2052  10695 switches
+D3.15       0.0379  0.0247   0.1017  0.1173  14153 switches
+VMA4        0.0000  0.0000   0.2994  0.3008  11848 switches
 
 All (Fisher's method):
- Chi2 :     > 194.1756
+ Chi2 :     > 202.6645
  Df   :    26
- Prob :     < 1.14e-27
+ Prob :     < 2.72e-29
 
 Normal ending

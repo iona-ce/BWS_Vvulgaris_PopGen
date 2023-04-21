@@ -68,13 +68,17 @@ BWS_Sibs$Long2 <- bws_data[match2,]$Longitude
 BWS_Sibs$Cluster1 <- bws_data[match1,]$cluster
 BWS_Sibs$Cluster2 <- bws_data[match2,]$cluster
 
+# Adding trap number 
+BWS_Sibs$Trap1 <- bws_data[match1,]$Trap_ID
+BWS_Sibs$Trap2 <- bws_data[match2,]$Trap_ID
+
 # Add completedness of genotypes - this will serve to later on make a decision on which
 # samples to remove 
 BWS_Sibs$count_na_row1 <- bws_data[match1,]$count_na_row
 BWS_Sibs$count_na_row2 <- bws_data[match2,]$count_na_row
 
 # Remove sib pairs if inferred probability of sibship is less than 0.8
-BWS_Sibs <- subset(BWS_Sibs, BWS_Sibs$Probability > 0.8)
+BWS_Sibs <- subset(BWS_Sibs, BWS_Sibs$Probability > 0.85)
 
 ## 3. Pairwise distances: calculating distance between siblings in different traps ----
 
@@ -93,15 +97,35 @@ BWS_Sibs$Distance <- BWS_Sibs$Distance/1000
 BWS_Sibs <- data.frame(BWS_Sibs)
 
 # Get data
-nrow(subset(BWS_Sibs, BWS_Sibs$SibType == "Full")) #31
+nrow(subset(BWS_Sibs, BWS_Sibs$SibType == "Full")) #24
 nrow(subset(BWS_Sibs, BWS_Sibs$SibType == "Half")) #1
-length(unique(c(BWS_Sibs$OffspringID1, BWS_Sibs$OffspringID2))) # 39
+length(unique(c(BWS_Sibs$OffspringID1, BWS_Sibs$OffspringID2))) # 34
 
 # There are 31 full sib pairs, 1 half sib pair comprising 39 individuals 
 
 # Save file 
 write.csv(BWS_Sibs, "Data/06_BWS_Sibling_Results.csv", row.names = FALSE)
 BWS_Sibs <- read.csv("Data/06_BWS_Sibling_Results.csv")
+
+# Edit this document for Supplementary Material 
+BWS_Sibs_Supplementary <- BWS_Sibs[c("Year", "OffspringID1", "Trap1", "Cluster1", "OffspringID2", "Trap2", "Cluster2", "Probability", "SibType", "Distance")]
+
+# Replace cluster numbers 
+
+BWS_Sibs_Supplementary$Cluster1[BWS_Sibs_Supplementary$Cluster1 == 1] <- "-"
+BWS_Sibs_Supplementary$Cluster2[BWS_Sibs_Supplementary$Cluster2 == 1] <- "-"
+BWS_Sibs_Supplementary[BWS_Sibs_Supplementary == 22] <- "Hastings"
+BWS_Sibs_Supplementary[BWS_Sibs_Supplementary == 29] <- "Poole"
+BWS_Sibs_Supplementary[BWS_Sibs_Supplementary == 205] <- "Shawford"
+BWS_Sibs_Supplementary[BWS_Sibs_Supplementary == 286] <- "Wrecclesham"
+BWS_Sibs_Supplementary[BWS_Sibs_Supplementary == 328] <- "Walton"
+
+# Change colnames
+colnames(BWS_Sibs_Supplementary) <- c("Year", "Sample 1", "Trap Number 1", "Cluster 1 (if applicable)", "Sample 2", "Trap Number 2", "Cluster 2 (if applicable)", 
+                                      "Probability of Sibship",	"Full/Half Sibship",	"Distance between traps (km)")
+
+# Save file 
+write.csv(BWS_Sibs_Supplementary, "Results/BWS_Sibling_Results.csv", row.names = FALSE)
 
 # 4. Create datasets for subsequent analyses with this information
 
@@ -113,14 +137,14 @@ BWS_Sibs <- read.csv("Data/06_BWS_Sibling_Results.csv")
 inds_to_remove_17 <- c("1285A", "1285H", "3129A", "3129F", "3129G", "3129J", "3129K", "3129Q") 
 
 # Removal of 8 individuals 
-# Although indications for 1519 and 3093 being full sibs, these have been retained as distance >400km - improbable.
-# This leaves 97 individuals from 2017
 
-inds_to_remove_18 <- c("0645H", "0645B", "0645E", "1187A", "1715A", 
-                       "2159D", "2448C", "2448G", "2448I", "3026B",
+inds_to_remove_18 <- c("0645H", "0645E", "1187A", "1715A", 
+                       "2159D", "2448C", "2448G", "2448I", 
                        "5637G", "5912E")
 
-# Removal of 12 individuals 
+# If performing this analysis with 0.8, then also remove"0645B", "3026B".
+
+# Removal of 10 individuals 
 # Although indications for 3253A and 5597B being full sibs, these have been retained as distance >135km - unlikely
 # This leaves 184 individuals from 2018 (check this)
 
@@ -141,7 +165,7 @@ bws_nosibs <- read.csv("Data/07_BWS_Data_50_NoSibs.csv")
 # Subset these 
 
 bws17_nosibs <- subset(bws_nosibs, bws_nosibs$Year == "2017") #nrow 97
-bws18_nosibs <- subset(bws_nosibs, bws_nosibs$Year == "2018") #nrow 184
+bws18_nosibs <- subset(bws_nosibs, bws_nosibs$Year == "2018") #nrow 186
 
 # Save files 
 
@@ -170,5 +194,6 @@ bws18_nosibs_genalex <- bws18_nosibs[ , ! names(bws18_nosibs) %in% c("Trap_ID","
 # Save these for analysis with GenAlEx
 write.csv(bws17_nosibs_genalex, "Data/08a_BWS_Data_50_NoSibs_2017_GenAlEx.csv", row.names = FALSE)
 write.csv(bws18_nosibs_genalex, "Data/08b_BWS_Data_50_NoSibs_2018_GenAlEx.csv", row.names = FALSE)
+
 
 

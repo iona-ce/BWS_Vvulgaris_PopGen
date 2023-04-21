@@ -43,7 +43,7 @@ evannoMethodStructure(data=sr1,exportplot=T,exportpath=getwd())
 
 #Create plots
 p <- evannoMethodStructure(data=sr1,exportplot=F,returnplot=T,returndata=F,basesize=12,linesize=0.7)
-grid.arrange(p) #Take highest ∆K (here 52.8 for K = 2) # upon doing again it is 28.87 for K = 2
+grid.arrange(p) #Take highest ∆K (here 28.8 for K = 2) 
 
 ## 4. Plotting the data ####
 
@@ -69,38 +69,43 @@ colnames(labk2) <- c("Pop")
 
 #Rename 
 
-labk2[labk2 == 1] <- "NE"
-labk2[labk2 == 2] <- "SE"
-labk2[labk2 == 3] <- "SC"
-labk2[labk2 == 4] <- "EE"
-labk2[labk2 == 5] <- "WE"
-labk2[labk2 == 6] <- "NI"
+labk2[labk2 == 1] <- "N. England"
+labk2[labk2 == 2] <- "S. England"
+labk2[labk2 == 3] <- "Scotland"
+labk2[labk2 == 4] <- "E. England"
+labk2[labk2 == 5] <- "W. Eng/Wales"
+labk2[labk2 == 6] <- "N. Ireland"
+
+regions <- c("S. England", "E. England","N. England", "W. Eng/Wales","Scotland", "N. Ireland")
 
 #Test with only one K
 p1 <- plotQ(slist[13],returnplot=T,exportplot=F,basesize=11,
-            grplab=labk2,grplabsize=6,linesize=0.5,pointsize=6,
+            grplab=labk2,grplabsize=5,linesize=0.5,pointsize=6,
             showdiv = TRUE, divsize = 1, ordergrp = TRUE,
-            sortind="all", subsetgrp = c("SE", "EE",
-                                         "NE", "WE",
-                                         "SC", "NI"))
+            sortind="all", subsetgrp = regions,
+            grplabangle = 90, grplabjust = 0.4)
 
 grid.arrange(p1$plot[[1]])
 
 #Choose which Ks to display (only need one per K of interest) - here for K=2, K=5, K=6
 
-p1 <- plotQ(slist[c(4, 14, 17)],imgoutput="join",sharedindlab = F,returnplot=T,exportplot=F,basesize=11,
-            grplab=labk2,grplabsize=6,linesize=0.5,pointsize=6,
+p1 <- plotQ(slist[c(4, 17)],imgoutput="join",sharedindlab = F,returnplot=T,exportplot=F,basesize=11,
+            grplab=labk2, grplabsize=5, linesize=0.5, pointsize=6,
             showdiv = TRUE, divsize = 1, ordergrp = TRUE,
-            splab = c("K=2", "K=5", "K=6"), splabsize = 18.5,
-            sortind="all", subsetgrp = c("SE", "EE",
-                                         "NE", "WE",
-                                         "SC", "NI"))
+            splab = c("K=2", "K=6"), splabsize = 17,
+            sortind="all", subsetgrp = regions,
+            grplabangle = -90, grplabjust = 0,
+            grplabpos = 0.8,
+            panelratio = c(1.5,1), linepos = 0.9,
+            titlelab = "National Scale", showtitle = TRUE, titlehjust = 0.5, 
+            titlesize = 20, titlecol = "black", titlespacer = 5,
+            splabcol = "black")
 
 grid.arrange(p1$plot[[1]])
 
 # So the same for 2018 
 
-slist <- readQ(c("Data/11_Structure/bws18_structurek1_results_f", "Data/11_Structure/bws18_structurek2_results_f",
+slist2 <- readQ(c("Data/11_Structure/bws18_structurek1_results_f", "Data/11_Structure/bws18_structurek2_results_f",
                  "Data/11_Structure/bws18_structurek3_results_f", "Data/11_Structure/bws18_structurek4_results_f",
                  "Data/11_Structure/bws18_structurek5_results_f", "Data/11_Structure/bws18_structurek6_results_f",
                  "Data/11_Structure/bws18_structurek7_results_f", "Data/11_Structure/bws18_structurek8_results_f",
@@ -119,30 +124,26 @@ slist <- readQ(c("Data/11_Structure/bws18_structurek1_results_f", "Data/11_Struc
 ## 2. TabulateQ ####
 
 #Tabulate q to produce table of runs from qlist
-tr1 <- tabulateQ(qlist=slist)
-sr1 <- summariseQ(tr1)
-summariseQ(tr1, writetable=TRUE, exportpath=getwd())
+tr2 <- tabulateQ(qlist=slist2)
+sr2 <- summariseQ(tr2)
+summariseQ(tr2, writetable=TRUE, exportpath=getwd())
 
 ## 3. Evanno's Method to determine best ∆K ####
 
 #Do Evanno's method with all the other runs 
-evannoMethodStructure(data=sr1)
+evannoMethodStructure(data=sr2)
 
 #Export plot 
-evannoMethodStructure(data=sr1,exportplot=T,exportpath=getwd())
+evannoMethodStructure(data=sr2,exportplot=T,exportpath=getwd())
 
 #Create plots
-p <- evannoMethodStructure(data=sr1,exportplot=F,returnplot=T,returndata=F,basesize=12,linesize=0.7)
-grid.arrange(p) #Take highest 2.69 for 3 pops 
+p_evanno2 <- evannoMethodStructure(data=sr2,exportplot=F,returnplot=T,returndata=F,basesize=12,linesize=0.7)
+grid.arrange(p_evanno2) #Take highest 8.60 for K=8
 
 ## 4. Plotting the data ####
 
 #Create pretty plots
-slist <- alignK(slist)
-
-#Checking that the data are loaded correctly 
-p1 <- plotQ(slist,imgoutput="join",returnplot=T,exportplot=F,basesize=11)
-grid.arrange(p1$plot[[1]])
+slist2 <- alignK(slist2)
 
 # Make labels for plot 
 bws18_pop<- data.frame(Pop=bws18_structure$cluster)
@@ -155,20 +156,31 @@ bws18_pop[bws18_pop == 22] <- "Hastings"
 bws18_pop[bws18_pop == 29] <- "Poole"
 bws18_pop[bws18_pop == 62] <- "Norwood"
 bws18_pop[bws18_pop == 122] <- "Crawley"
-bws18_pop[bws18_pop == 193] <- "F/down"
+bws18_pop[bws18_pop == 193] <- "Ferndown"
 bws18_pop[bws18_pop == 205] <- "Shawford"
 bws18_pop[bws18_pop == 286] <- "Wr/sham"
 bws18_pop[bws18_pop == 328] <- "Walton"
 
+order_cluster <- c("Poole", "Ferndown", "Walkford", "Shawford", "Wr/sham", "Walton", "Norwood", "Crawley", "Hastings")
+
 # Visualise
 
-p1 <- plotQ(slist[c(6,9)], imgoutput = "join", returnplot =T, exportplot = F, basesize = 11,
+p2 <- plotQ(slist2[c(24, 27)], imgoutput = "join", returnplot = TRUE, exportplot = FALSE, basesize = 11,
             sharedindlab = FALSE, sortind = "all",
-            grplab = bws18_pop, grplabsize=4, ordergrp = TRUE,
-            subsetgrp = c("Poole", "F/down", "Walkford", "Shawford", "Wr/sham", "Walton", "Norwood", "Crawley", "Hastings"),
+            grplab = bws18_pop, grplabsize = 5, 
+            linesize=0.5, pointsize=6, 
+            ordergrp = TRUE,
+            subsetgrp = order_cluster, 
             showdiv = TRUE, divsize = 1,
-            splab = c("K=6", "K=9"), splabsize = 17)
+            splab = c("K=8", "K=9"), splabsize = 17,
+            grplabangle = -90, grplabjust = 0,
+            grplabpos = 0.8,
+            panelratio = c(1.5,1), linepos = 0.9,
+            titlelab = "Regional Scale", showtitle = TRUE, titlehjust = 0.5, 
+            titlesize = 20, titlecol = "black", titlespacer = 5,
+            splabcol = "black")
 
-grid.arrange(p1$plot[[1]])
+grid.arrange(p2$plot[[1]])
 
+grid.arrange(p1$plot[[1]], p2$plot[[1]], ncol = 2)
 

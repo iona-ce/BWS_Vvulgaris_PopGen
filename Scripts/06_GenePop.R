@@ -45,7 +45,7 @@ test_HW(
   enumeration = FALSE,
   dememorization = 10000,
   batches = 20,
-  iterations = 5000,
+  iterations = 10000,
   verbose = interactive()
 )
 
