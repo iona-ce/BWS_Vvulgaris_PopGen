@@ -34,7 +34,7 @@ write.table(bws17_nosibs_structure, "Data/11_Structure/bws17_structure.txt", col
 # For 2018 ----
 # Siblings are retained for BWS 2018 structure analyses; using data set bws18
 
-bws18_structure <- bws18[ , ! names(bws18) %in% c("Trap_ID", "Method",
+bws18_structure <- bws18_nosibs[ , ! names(bws18_nosibs) %in% c("Trap_ID", "Method",
                                                   "Region", "Year", 
                                                   "Latitude", "Longitude", 
                                                   "Vespula_vulgaris", "count_na_row",

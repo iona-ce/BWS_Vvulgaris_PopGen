@@ -50,9 +50,9 @@ grid.arrange(p) #Take highest ∆K (here 28.8 for K = 2)
 #Create pretty plots
 slist <- alignK(slist)
 
-#Checking that the data are loaded correctly 
-p1 <- plotQ(slist,imgoutput="join",returnplot=T,exportplot=F,basesize=11)
-grid.arrange(p1$plot[[1]])
+# #Checking that the data are loaded correctly 
+# p1 <- plotQ(slist,imgoutput="join",returnplot=T,exportplot=F,basesize=11)
+# grid.arrange(p1$plot[[1]])
 
 #Read in the data with the population info - the pop info needs to be in a 
 #data frame format to be able to incorporate it into the graph
@@ -79,13 +79,13 @@ labk2[labk2 == 6] <- "N. Ireland"
 regions <- c("S. England", "E. England","N. England", "W. Eng/Wales","Scotland", "N. Ireland")
 
 #Test with only one K
-p1 <- plotQ(slist[13],returnplot=T,exportplot=F,basesize=11,
-            grplab=labk2,grplabsize=5,linesize=0.5,pointsize=6,
-            showdiv = TRUE, divsize = 1, ordergrp = TRUE,
-            sortind="all", subsetgrp = regions,
-            grplabangle = 90, grplabjust = 0.4)
-
-grid.arrange(p1$plot[[1]])
+# p1 <- plotQ(slist[13],returnplot=T,exportplot=F,basesize=11,
+#             grplab=labk2,grplabsize=5,linesize=0.5,pointsize=6,
+#             showdiv = TRUE, divsize = 1, ordergrp = TRUE,
+#             sortind="all", subsetgrp = regions,
+#             grplabangle = 90, grplabjust = 0.4)
+# 
+# grid.arrange(p1$plot[[1]])
 
 #Choose which Ks to display (only need one per K of interest) - here for K=2, K=5, K=6
 
@@ -138,7 +138,7 @@ evannoMethodStructure(data=sr2,exportplot=T,exportpath=getwd())
 
 #Create plots
 p_evanno2 <- evannoMethodStructure(data=sr2,exportplot=F,returnplot=T,returndata=F,basesize=12,linesize=0.7)
-grid.arrange(p_evanno2) #Take highest 8.60 for K=8
+grid.arrange(p_evanno2) #Take highest 119.46 for K=2
 
 ## 4. Plotting the data ####
 
@@ -165,14 +165,14 @@ order_cluster <- c("Poole", "Ferndown", "Walkford", "Shawford", "Wr/sham", "Walt
 
 # Visualise
 
-p2 <- plotQ(slist2[c(24, 27)], imgoutput = "join", returnplot = TRUE, exportplot = FALSE, basesize = 11,
+p2 <- plotQ(slist2[c(4, 27)], imgoutput = "join", returnplot = TRUE, exportplot = FALSE, basesize = 11,
             sharedindlab = FALSE, sortind = "all",
             grplab = bws18_pop, grplabsize = 5, 
             linesize=0.5, pointsize=6, 
             ordergrp = TRUE,
             subsetgrp = order_cluster, 
             showdiv = TRUE, divsize = 1,
-            splab = c("K=8", "K=9"), splabsize = 17,
+            splab = c("K=2", "K=9"), splabsize = 17,
             grplabangle = -90, grplabjust = 0,
             grplabpos = 0.8,
             panelratio = c(1.5,1), linepos = 0.9,

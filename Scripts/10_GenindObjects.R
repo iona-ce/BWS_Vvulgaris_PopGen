@@ -33,6 +33,8 @@ for (lib in basic_libraries) {
 # 2. Formatting data  ----
 
 # 2018 data ----
+
+# Cluster level data 
 # Remove columns that are not needed
 
 bws18_genind_table <- bws18[ , ! names(bws18) %in% c("Method", "Region", "Year", 
@@ -160,12 +162,9 @@ colnames(xydat) <- c("x", "y")
 # Add xy dataframe to genind object 
 bws18_genind@other$xy <- xydat
 
-# Cluster data ----
+# Subset to cluster data ----
 
 # Aim: subset data by population 
-
-bws18_genind_regional <- popsub(bws18_genind, 
-                                sublist = c("17", "22", "29", "62", "122", "193", "205", "286", "328"))
 
 bws18_genind_cl17 <- popsub(bws18_genind,
                             sublist = "17")
@@ -217,8 +216,92 @@ bws18_genind_cl328 <- popsub(bws18_genind,
 
 bws18_genind_cl328@pop <- bws18_genind_cl328@strata$bws18_genind_table.Trap_ID
 
+# Regional level data (without siblings) ----
+
+bws18_genind_table_regional <- bws18_nosibs[ , ! names(bws18_nosibs) %in% c("Method", "Region", "Year", 
+                                                                            "Code", "Postcode", 
+                                                                            "Vespula_vulgaris", "count_na_row",
+                                                                            "LIST2004", "LIST2004.1")] #loci to remove
+
+bws18_genind_table_regional <- bws18_genind_table_regional[bws18_genind_table_regional$cluster %in% c("17", "22", "29", "62", "122", "193", "205", "286", "328"),]
+
+bws18_genind_table_regional <- renaming_locus_name(bws18_genind_table_regional)
+
+bws18_regional_reformated <- as.data.frame(cbind(paste(bws18_genind_table_regional$LIST2007_1,
+                                                       bws18_genind_table_regional$LIST2007_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2003_1,
+                                              bws18_genind_table_regional$LIST2003_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2013_1,
+                                              bws18_genind_table_regional$LIST2013_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2018_1,
+                                              bws18_genind_table_regional$LIST2018_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$VMA3_1,
+                                              bws18_genind_table_regional$VMA3_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2001_1,
+                                              bws18_genind_table_regional$LIST2001_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2011_1,
+                                              bws18_genind_table_regional$LIST2011_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$VMA6_1,
+                                              bws18_genind_table_regional$VMA6_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$R1169_1,
+                                              bws18_genind_table_regional$R1169_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$LIST2018_1,
+                                              bws18_genind_table_regional$LIST2018_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$Rufa19_1,
+                                              bws18_genind_table_regional$Rufa19_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$D315_1,
+                                              bws18_genind_table_regional$D315_2,
+                                              sep = "/"),
+                                        paste(bws18_genind_table_regional$VMA4_1,
+                                              bws18_genind_table_regional$VMA4_2,
+                                              sep = "/")),
+                                  stringsAsFactors = FALSE)
+
+# obtain locus names, without the _1 or _2
+locus_name_vec <- unique(gsub(x = colnames(bws18_genind_table_regional)[4:29],
+                              pattern = "\\_[1,2]$",
+                              replacement = ""))
+
+# Rename columns and row with loci and sample names 
+colnames(bws18_regional_reformated) <- locus_name_vec
+rownames(bws18_regional_reformated) <- bws18_genind_table_regional$Sample
+
+# Create genind object
+bws18_regional_genind <- df2genind(X      = bws18_regional_reformated,
+                          sep    = "/",
+                          ind.names = bws18_genind_table_regional$Sample,
+                          loc.names = locus_name_vec,
+                          pop    = bws18_genind_table_regional$Pop,
+                          NA.char = "0",
+                          ploidy = 2,
+                          type   = "codom",
+                          strata = data.frame(bws18_genind_table_regional$Trap_ID)) #adding in subpop info
+
+# Add xy data x = long, y = lat 
+# Create lat/long dataframe 
+xydat <- as.data.frame(cbind(bws18_genind_table_regional$Long,
+                             bws18_genind_table_regional$Lat))
+# Insert row and column names 
+rownames(xydat) <- bws18_genind_table_regional$Sample
+colnames(xydat) <- c("x", "y")
+
+# Add xy dataframe to genind object 
+bws18_regional_genind@other$xy <- xydat
+
+
 # Save the genind objects 
-save(bws18_genind_regional, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_Regional_Genind.RData")
+save(bws18_regional_genind, file = "Data/12_GenindObjects/12_BWS_50_NoSibs_2018_Regional_Genind.RData")
 
 save(bws18_genind_cl17, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl17_Genind.RData")
 save(bws18_genind_cl22, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl22_Genind.RData")
@@ -228,9 +311,9 @@ save(bws18_genind_cl122, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_c
 save(bws18_genind_cl193, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl193_Genind.RData")
 save(bws18_genind_cl205, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl205_Genind.RData")
 save(bws18_genind_cl286, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl286_Genind.RData")
-save(bws18_genind_cl328, file = "Data12_GenindObjects//12_BWS_50_WithSibs_2018_cl305_Genind.RData")
+save(bws18_genind_cl328, file = "Data/12_GenindObjects/12_BWS_50_WithSibs_2018_cl328_Genind.RData")
 
-# 2017 data 
+# 2017 data ----
 
 # Cleaning data 
 bws17_genind_table <- bws17_nosibs[ , ! names(bws17_nosibs) %in% c("Trap_ID", "Method", "cluster", 

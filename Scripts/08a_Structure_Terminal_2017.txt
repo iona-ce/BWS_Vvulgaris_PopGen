@@ -1,7 +1,7 @@
 #### Running STRUCTURE for BWS 2017 data on Terminal ####
 
 ## 1. Navigate to working directory where 
-cd ~/Documents/DTP/BWS/Datasets/DataForGitHub/20230127_BWS_Scripts/Data/11_Structure
+cd ~/Documents/DTP/BWS/BWS_Vvulgaris_PopGen/Data/11_Structure
 
 ## 2. Edit main paramameters (original file = that provided by Structure)
 

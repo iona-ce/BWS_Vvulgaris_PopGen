@@ -19,7 +19,7 @@ Basic Program Parameters
 Input/Output files
 
 #define INFILE   bws17_structure.txt   // (str) name of input data file
-#define OUTFILE  bws17_structurek1.2_results  //(str) name of output data file
+#define OUTFILE  bws17_structurek1_2_results  //(str) name of output data file
 
 Data file format
 
