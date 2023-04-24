@@ -436,3 +436,7 @@ bws17_genind@other$xy <- xydat
 
 # Save this 
 save(bws17_genind, file = "Data/12_GenindObjects/12_BWS_50_2017_National_Genind.RData")
+
+# 2017 without Northern Ireland data 
+bws17_genind_NI <- popsub(bws17_genind,
+                             sublist = c("EE", "SE", "NE", "SC", "WE"))

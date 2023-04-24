@@ -97,8 +97,8 @@ p1 <- plotQ(slist[c(4, 17)],imgoutput="join",sharedindlab = F,returnplot=T,expor
             grplabangle = -90, grplabjust = 0,
             grplabpos = 0.8,
             panelratio = c(1.5,1), linepos = 0.9,
-            titlelab = "National Scale", showtitle = TRUE, titlehjust = 0.5, 
-            titlesize = 20, titlecol = "black", titlespacer = 5,
+            titlelab = "National", showtitle = TRUE, titlehjust = 0.5, 
+            titlesize = 14, titlecol = "black", titlespacer = 10, titleface = "bold",
             splabcol = "black")
 
 grid.arrange(p1$plot[[1]])
@@ -158,10 +158,10 @@ bws18_pop[bws18_pop == 62] <- "Norwood"
 bws18_pop[bws18_pop == 122] <- "Crawley"
 bws18_pop[bws18_pop == 193] <- "Ferndown"
 bws18_pop[bws18_pop == 205] <- "Shawford"
-bws18_pop[bws18_pop == 286] <- "Wr/sham"
+bws18_pop[bws18_pop == 286] <- "Wrecclesham"
 bws18_pop[bws18_pop == 328] <- "Walton"
 
-order_cluster <- c("Poole", "Ferndown", "Walkford", "Shawford", "Wr/sham", "Walton", "Norwood", "Crawley", "Hastings")
+order_cluster <- c("Poole", "Ferndown", "Walkford", "Shawford", "Wrecclesham", "Walton", "Norwood", "Crawley", "Hastings")
 
 # Visualise
 
@@ -176,8 +176,8 @@ p2 <- plotQ(slist2[c(4, 27)], imgoutput = "join", returnplot = TRUE, exportplot 
             grplabangle = -90, grplabjust = 0,
             grplabpos = 0.8,
             panelratio = c(1.5,1), linepos = 0.9,
-            titlelab = "Regional Scale", showtitle = TRUE, titlehjust = 0.5, 
-            titlesize = 20, titlecol = "black", titlespacer = 5,
+            titlelab = "Regional", showtitle = TRUE, titlehjust = 0.5, 
+            titlesize = 14, titlecol = "black", titlespacer = 10, titleface = "bold",
             splabcol = "black")
 
 grid.arrange(p2$plot[[1]])

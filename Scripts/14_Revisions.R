@@ -59,11 +59,14 @@ bws_data_2018$Days <- trapinfo_2018[(match(bws_data_2018$Trap_ID, trapinfo_2018$
 # Merge these two dataframes 
 bws_data <- rbind(bws_data_2017, bws_data_2018)
 
+# Make sure Trap ID is a character 
+bws_data$Trap_ID <- as.numeric(bws_data$Trap_ID)
+
 # Perform linear regression on the data
-model <- lm(count_na_row ~ Method + Trap_ID + Liquid, data = bws_data)
-summary(model)
-model1 <- lm(count_na_row ~ Method + Days + Trap_ID + Liquid , data = bws_data)
+
+model1 <- glm(count_na_row ~ Method + Days + Liquid + Trap_ID, data = bws_data)
 summary(model1)
+anova(model1)
 
 # Based on the results, it appears that the main impacts on PCR success depends on the method,
 # and a small amount by the number of days that the sample was contained in the trap 
@@ -77,6 +80,36 @@ mean(bws_dneasy$count_na_row)
 mean(bws_chelex$count_na_row)
 t.test(bws_dneasy$count_na_row, bws_chelex$count_na_row) # p = 3.537e-10; 
 # DNeasy is significantly more efficient than Chelex on BWS samples 
+
+# DIFFERENCE IN ALLELE NUMBERS BETWEEN METHODS
+
+bws_data_genalex <- bws_data[ , ! names(bws_data) %in% c("Trap_ID", "Region",
+                                                         "cluster", "Year", 
+                                                         "Latitude", "Longitude", 
+                                                         "Vespula_vulgaris", "count_na_row", 
+                                                         "Liquid", "Days")]
+
+bws_data_genalex[is.na(bws_data_genalex)] <- 0
+
+bws_data_genalex_chelex <- subset(bws_data_genalex, bws_data_genalex$Method == "Chelex")
+bws_data_genalex_dneasy <- subset(bws_data_genalex, bws_data_genalex$Method == "Dneasy")
+
+write.csv(bws_data_genalex, "Data/14_Revisions/15_BWS_Method_Comp_GenAlEx.csv", row.names = FALSE)
+write.csv(bws_data_genalex_dneasy, "Data/14_Revisions/15a_BWS_Method_Comp_Dneasy_GenAlEx.csv", row.names = FALSE)
+write.csv(bws_data_genalex_chelex, "Data/14_Revisions/15b_BWS_Method_Comp_Chelex_GenAlEx.csv", row.names = FALSE)
+
+nrow(subset(bws_data_genalex,bws_data_genalex$Method == "Chelex"))
+nrow(subset(bws_data_genalex,bws_data_genalex$Method == "Dneasy"))
+
+# Also to compare all alleles across both methods/years to compare to invasive pops 
+
+
+# Perform a t-test of Na between the two
+
+na_data <- read.csv("Data/14_Revisions/16_Na_Method.csv")
+na_data <- na_data[1:12,]
+na_data <- na_data[-6,]
+t.test(na_data$Chelex, na_data$Dneasy)
 
 # CLARIFICATION OF SAMPLE SIZES ----
 
@@ -148,11 +181,24 @@ bws_50_dneasy <- subset(bws_data_50, bws_data_50$Method == "Dneasy")
 # Check amplification success across all samples 
 colSums(!is.na(bws17))/nrow(bws17)
 
+# SIBLING SAMPLE SIZES ----
+nrow(BWS_Sibs)
+nrow(subset(BWS_Sibs, BWS_Sibs$Year == 2017)) #8
+nrow(subset(BWS_Sibs, BWS_Sibs$Year == 2018)) #17
 
-
-
-
-
+# GETTING POPULATION LEVEL SAMPLE SIZES
+table(bws17_nosibs$Region)
+table(bws18$cluster)
+table(subset(bws18, bws18$cluster == 17)$Trap_ID)
+table(subset(bws18, bws18$cluster == 22)$Trap_ID)
+table(subset(bws18, bws18$cluster == 29)$Trap_ID)
+table(subset(bws18, bws18$cluster == 57)$Trap_ID)
+table(subset(bws18, bws18$cluster == 62)$Trap_ID)
+table(subset(bws18, bws18$cluster == 122)$Trap_ID)
+table(subset(bws18, bws18$cluster == 193)$Trap_ID)
+table(subset(bws18, bws18$cluster == 205)$Trap_ID)
+table(subset(bws18, bws18$cluster == 286)$Trap_ID)
+table(subset(bws18, bws18$cluster == 328)$Trap_ID)
 
 # Delving deeper into the 2018 samples 
 

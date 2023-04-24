@@ -1,0 +1,54 @@
+"Heterozygosity, Fstatistics and Polymorphism by Population for Codominant Data",,,,,,,,,
+,,,,,,,,,
+Data Sheet,15a_BWS_Method_Comp_Dneasy_GenA,,,,,,,,
+Data Title,,,,,,,,,
+,,,,,,,,,
+No. Loci,14,,,,,,,,
+No. Samples,81,,,,,,,,
+No. Pops.,1,,,,,,,,
+,,,,,,,,,
+"Sample Size, No. Alleles, No. Effective Alleles, Information Index, Observed Heterozygosity, Expected and Unbiased Expected Heterozygosity, and Fixation Index",,,,,,,,,
+,,,,,,,,,
+Pop,Locus,N,Na,Ne,I,Ho,He,uHe,F
+Pop1,LIST2007,81,6.000,1.591,0.800,0.222,0.371,0.374,0.401
+,LIST2003,81,18.000,5.598,2.176,0.753,0.821,0.826,0.083
+,LIST2013,77,9.000,3.977,1.525,0.701,0.749,0.753,0.063
+,LIST2018,78,13.000,7.922,2.209,0.782,0.874,0.879,0.105
+,VMA3,78,9.000,3.040,1.417,0.526,0.671,0.675,0.217
+,LIST2004,65,11.000,2.908,1.468,0.523,0.656,0.661,0.203
+,LIST2001,77,16.000,10.109,2.477,0.857,0.901,0.907,0.049
+,LIST2011,52,6.000,1.523,0.718,0.308,0.344,0.347,0.104
+,VMA6,76,14.000,7.335,2.207,0.789,0.864,0.869,0.086
+,R1.169,80,17.000,4.034,1.984,0.663,0.752,0.757,0.119
+,LIST2017,80,9.000,1.376,0.699,0.188,0.273,0.275,0.314
+,Rufa19,79,12.000,4.581,1.890,0.797,0.782,0.787,-0.020
+,D3.15,0,0.000,0.000,0.000,0.000,0.000,0.000,
+,VMA4,0,0.000,0.000,0.000,0.000,0.000,0.000,
+,,,,,,,,,
+Mean and SE over Loci for each Pop,,,,,,,,,
+,,,,,,,,,
+Pop,,N,Na,Ne,I,Ho,He,uHe,F
+Pop1,Mean,64.571,10.000,3.857,1.398,0.508,0.576,0.579,0.144
+,SE,7.603,1.508,0.810,0.221,0.082,0.085,0.085,0.032
+,,,,,,,,,
+Percentage of Polymorphic Loci,,,,,,,,,
+,,,,,,,,,
+Population,%P,,,,,,,,
+Pop1,85.71%,,,,,,,,
+,,,,,,,,,
+Na = No. of Different Alleles,,,,,,,,,
+Ne = No. of Effective Alleles = 1 / (Sum pi^2),,,,,,,,,
+I = Shannon's Information Index = -1* Sum (pi * Ln (pi)),,,,,,,,,
+Ho = Observed Heterozygosity = No. of Hets / N,,,,,,,,,
+He = Expected Heterozygosity = 1 - Sum pi^2,,,,,,,,,
+uHe = Unbiased Expected Heterozygosity = (2N / (2N-1)) * He,,,,,,,,,
+F = Fixation Index = (He - Ho) / He = 1 - (Ho / He),,,,,,,,,
+Where pi is the frequency of the ith allele for the population & Sum pi^2 is the sum of the squared population allele frequencies.,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+Warning! Results should be treated with caution given the following:,,,,,,,,,
+There is 19% missing data at the locus 'LIST2004' in the population 'Pop1!,,,,,,,,,
+There is 35% missing data at the locus 'LIST2011' in the population 'Pop1!,,,,,,,,,
+There is 6% missing data at the locus 'VMA6' in the population 'Pop1!,,,,,,,,,
+There is 100% missing data at the locus 'D3.15' in the population 'Pop1!,,,,,,,,,
+There is 100% missing data at the locus 'VMA4' in the population 'Pop1!,,,,,,,,,
