@@ -46,12 +46,9 @@ trapinfo_2018 <- trapinfo_2018[ , names(trapinfo_2018) %in% c( "ID", "days_total
 
 trapinfo_2018 <- trapinfo_2018[, c("ID", "days_total", "type")]
 
-# Change colnames 
-colnames(trapinfo_2018) <- colnames(trapinfo_2017)
-
 # Match the two together 
 bws_data_2017$Liquid <- trapinfo_2017[(match(bws_data_2017$Trap_ID, trapinfo_2017$Trap_ID)),]$liquid
-bws_data_2018$Liquid <- trapinfo_2018[(match(bws_data_2018$Trap_ID, trapinfo_2018$ID)),]$liquid
+bws_data_2018$Liquid <- trapinfo_2018[(match(bws_data_2018$Trap_ID, trapinfo_2018$ID)),]$type
 
 bws_data_2017$Days <- trapinfo_2017[(match(bws_data_2017$Trap_ID, trapinfo_2017$Trap_ID)),]$days_total
 bws_data_2018$Days <- trapinfo_2018[(match(bws_data_2018$Trap_ID, trapinfo_2018$ID)),]$days_total
@@ -59,17 +56,7 @@ bws_data_2018$Days <- trapinfo_2018[(match(bws_data_2018$Trap_ID, trapinfo_2018$
 # Merge these two dataframes 
 bws_data <- rbind(bws_data_2017, bws_data_2018)
 
-# Make sure Trap ID is a character 
-bws_data$Trap_ID <- as.numeric(bws_data$Trap_ID)
-
-# Perform linear regression on the data
-
-model1 <- glm(count_na_row ~ Method + Days + Liquid + Trap_ID, data = bws_data)
-summary(model1)
-anova(model1)
-
-# Based on the results, it appears that the main impacts on PCR success depends on the method,
-# and a small amount by the number of days that the sample was contained in the trap 
+# What affects PCR success?
 
 # Looking at different methods 
 
@@ -80,8 +67,37 @@ mean(bws_dneasy$count_na_row)
 mean(bws_chelex$count_na_row)
 t.test(bws_dneasy$count_na_row, bws_chelex$count_na_row) # p = 3.537e-10; 
 # DNeasy is significantly more efficient than Chelex on BWS samples 
+# But what else might affect this?
 
-# DIFFERENCE IN ALLELE NUMBERS BETWEEN METHODS
+# Make sure Trap ID is a character 
+bws_data$Days <- as.numeric(bws_data$Days)
+bws_data$Trap_ID <- as.factor(bws_data$Trap_ID)
+bws_data$Liquid <- as.factor(bws_data$Liquid)
+bws_data$Method <- as.factor(bws_data$Method)
+
+
+# Perform linear regression on the data
+
+# Load libraries
+
+library(lme4)
+library(lmerTest)
+library(car)
+
+# Create model
+model1 <- glmer(count_na_row ~ Method + Liquid + Days + (1|Trap_ID), data = bws_data, family = 'poisson')
+
+# Check for association between year and method
+chisq.test(bws_data$Year, bws_data$Method)
+
+# Perform Anova
+Anova(model2, type = "III")
+
+# Based on the results, it appears that the main impacts on PCR success depends on the method,
+# and a small amount by the number of days that the sample was contained in the trap 
+
+
+# DIFFERENCE IN ALLELE NUMBERS BETWEEN METHODS ----
 
 bws_data_genalex <- bws_data[ , ! names(bws_data) %in% c("Trap_ID", "Region",
                                                          "cluster", "Year", 
@@ -200,12 +216,11 @@ table(subset(bws18, bws18$cluster == 205)$Trap_ID)
 table(subset(bws18, bws18$cluster == 286)$Trap_ID)
 table(subset(bws18, bws18$cluster == 328)$Trap_ID)
 
-# Delving deeper into the 2018 samples 
-
-# Change cluster numbers if they are not equal to 17, 22, 29, 57, 62, 122, 193, 205, 286, 328
-library(dplyr)
-bws_data <- bws_data %>%
-  mutate(cluster = ifelse(cluster %in% c(17, 22, 29, 57, 62, 122, 193, 205, 286, 328), cluster, 1))
+# Get number of individuals and traps in trap study
+trap_table <- as.data.frame(table(bws_data_50$Trap_ID))
+traps <- subset(trap_table, trap_table$Freq >1)
+nrow(traps) #52 traps with >1 individual
+sum(traps$Freq)
 
 
 
