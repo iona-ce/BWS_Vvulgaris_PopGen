@@ -1,5 +1,7 @@
 # BWS_Vvulgaris_PopGen
-Code used for the BWS Population Genetics study (currently under review) and other information (Data, Figures, Results). 
+Code used for the BWS Population Genetics study (published) and other information (Data, Figures, Results). 
+
+Cunningham-Eurich, I., Kontou, D., Yordanova, M., Maeda-Obregon, A., Favreau, E., Wang, J. et al. (2023) Using citizen science data to assess the population genetic structure of the common yellowjacket wasp, Vespula vulgaris. Insect Molecular Biology, 1–14. Available from: https://doi.org/10.1111/imb.12862
 
 Data is also stored here: 
 
